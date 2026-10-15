@@ -19,7 +19,8 @@ GBDK's [distribution FAQ](https://gbdk-2020.github.io/gbdk-2020/docs/api/docs_fa
 distinguishes a compiled game ROM from redistribution of the development
 kit. The GBDK library GPLv2 linking-exception notice and crash-handler notice
 from the installed 4.5.0 distribution are preserved under `third_party/gbdk/`
-for reference; these do not select a license for BRASSHOUND's project code/art.
+for reference. These notices apply to the upstream components; BRASSHOUND's
+project source, original art and music are covered by the [MIT License](LICENSE).
 
 Platform and product names identify compatibility targets. This is an
 independent game project. Physical Chromatic hardware has not been tested.

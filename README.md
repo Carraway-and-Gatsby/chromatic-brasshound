@@ -155,9 +155,8 @@ Source/level definitions are in `src/main.c`, `src/missions.c` and `include/miss
 See [GAME_DESIGN.md](GAME_DESIGN.md), [art provenance](assets/PROVENANCE.md),
 [audio source](assets/audio/README.md), and the original `docs/PROJECT_BRIEF.txt`.
 
-## License status and tooling
+## License and tooling
 
-A reuse license for BRASSHOUND source, art and music has not been selected.
-Public repository visibility is separate from licensing; see
-[GitHub's licensing guide](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+BRASSHOUND project source, original art and music are licensed under the
+[MIT License](LICENSE).
 Dependency licenses remain their upstream licenses. See [THIRD_PARTY.md](THIRD_PARTY.md).
