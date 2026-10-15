@@ -25,6 +25,20 @@ current-mission retry, gap/checkpoint recovery, all three boss attacks/results,
 all three checkpoint retries, and one complete input-only campaign.
 A separate actual-emulator browser test checks instant START/pause/resume/movement.
 
+## GitHub Actions self-check
+
+`.github/workflows/rom-self-check.yml` runs on main pushes, pull requests and
+manual dispatch with Python3.12 and GBDK4.5.0 on Ubuntu24.04. It regenerates
+native asset sources, builds the ROM, checks the cartridge header/checksums and
+runs the existing18 gameplay cases,4 browser input checks,11 UI checks and6
+ROOK checks. Original project logic and assertions remain the validation source.
+
+On success or failure, the run keeps the ROM, debug symbols, JSON reports,
+160x144 screenshots and APU recordings as an artifact for 14 days. A missing
+report is shown as not produced rather than as a pass. Read the failed step
+logs and report traceback before making a fix, then rerun the same workflow.
+CI does not automatically change source or weaken failed checks.
+
 Header/logo/size/checksum validation and every-frame OAM/scanline occupancy are
 mandatory. Boss-transition checks cover clearing old bullets, preserving score
 and inventory, resupply, resetting local coordinates/camera/checkpoint, stage

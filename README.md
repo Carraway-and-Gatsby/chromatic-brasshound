@@ -1,5 +1,7 @@
 # BRASSHOUND — three-mission campaign
 
+[![ROM self-check](https://github.com/Carraway-and-Gatsby/chromatic-brasshound/actions/workflows/rom-self-check.yml/badge.svg)](https://github.com/Carraway-and-Gatsby/chromatic-brasshound/actions/workflows/rom-self-check.yml)
+
 An original run-and-gun Game Boy Color game. ROOK disables BLACKFORGE's rogue
 weapons network across a ruined city, an industrial harbor and a command reactor.
 
@@ -140,6 +142,12 @@ tools/emulator-venv/bin/python tools/capture_stages.py --output build/stage-scre
 See [TESTING.md](TESTING.md) and the [published campaign report](docs/verification/campaign/report.json)
 for the verified build. Running `make test` writes fresh results under `build/`. Ordinary-input progression
 and isolated memory-assisted boundary fixtures are identified separately.
+
+GitHub Actions runs the same build and self-checks on main pushes, pull requests
+and manual dispatch. Each run validates the cartridge, verifies generated asset
+sources, runs all emulator suites, and retains ROM/debug evidence for 14 days,
+including failure screenshots and reports. The job summary shows that run's
+results. See the [workflow](.github/workflows/rom-self-check.yml).
 
 Busy updates can miss a VBlank, so this is not a locked 60 Hz claim. The camera
 advances forward with limited retreat. Rockets cause direct damage and visible
