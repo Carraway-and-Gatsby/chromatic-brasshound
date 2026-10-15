@@ -1,0 +1,1336 @@
+{
+  "rom_validation": {
+    "rom": "build/BRASSHOUND.gbc",
+    "title": "BRASSHOUND",
+    "bytes": 32768,
+    "cgb_flag": "0xc0",
+    "cartridge_type": "0x0",
+    "rom_size_code": "0x0",
+    "ram_size_code": "0x0",
+    "sha256": "940e6b886e5576c5aaa2910192939e9b471b5705ba6a71cd3978657540265d63",
+    "checks": {
+      "nintendo_logo": true,
+      "cgb_enabled": true,
+      "size_matches_header": true,
+      "header_checksum": true,
+      "global_checksum": true
+    },
+    "passed": true
+  },
+  "emulator": "PyBoy 2.8.1 CGB",
+  "cases": {
+    "controls": {
+      "input_only": true,
+      "screenshots": {
+        "title": "docs/verification/campaign/title.png",
+        "jump_fire": "docs/verification/campaign/jump-fire.png",
+        "crouch_fire": "docs/verification/campaign/crouch-fire.png",
+        "pause": "docs/verification/campaign/pause.png"
+      },
+      "checks": [
+        "title",
+        "START",
+        "movement",
+        "simultaneous movement/jump/fire",
+        "landing",
+        "crouch/fire",
+        "upward aim",
+        "pause freezes game",
+        "resume"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 69,
+        "player_y": 1664,
+        "camera_x": 5,
+        "hp": 3,
+        "frame": 253,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 100,
+        "invuln": 0
+      },
+      "sprite_usage": {
+        "active_oam": 7,
+        "peak_per_scanline": 4,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 7,
+        "per_scanline": 5,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 0,
+      "audio": {
+        "samples": 137064,
+        "min": 0,
+        "max": 45,
+        "nonzero": 139102,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "combat": {
+      "input_only": true,
+      "screenshots": {
+        "combat": "docs/verification/campaign/combat.png"
+      },
+      "checks": [
+        "pistol projectile hits and defeats infantry",
+        "unlimited pistol ammunition",
+        "camera follows"
+      ],
+      "performance": {
+        "display_frames": 180,
+        "game_updates": 155
+      },
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 324,
+        "player_y": 1668,
+        "camera_x": 259,
+        "hp": 3,
+        "frame": 312,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 200,
+        "invuln": 0
+      },
+      "sprite_usage": {
+        "active_oam": 7,
+        "peak_per_scanline": 5,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 10,
+        "per_scanline": 8,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 0,
+      "audio": {
+        "samples": 172023,
+        "min": 0,
+        "max": 45,
+        "nonzero": 229974,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "damage": {
+      "input_only": true,
+      "screenshots": {
+        "damage": "docs/verification/campaign/damage.png"
+      },
+      "checks": [
+        "enemy contact causes one hit",
+        "90-frame invulnerability prevents repeated damage"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 168,
+        "player_y": 1668,
+        "camera_x": 104,
+        "hp": 2,
+        "frame": 238,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 60
+      },
+      "sprite_usage": {
+        "active_oam": 2,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 7,
+        "per_scanline": 5,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 0,
+      "audio": {
+        "samples": 132243,
+        "min": 0,
+        "max": 40,
+        "nonzero": 147776,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "collision_pickups": {
+      "input_only": false,
+      "screenshots": {},
+      "checks": [
+        "strict projectile collision boundary",
+        "enemy health decrement",
+        "enemy death/score",
+        "destructible crate",
+        "machinegun drop/pickup",
+        "health pickup"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 100,
+        "player_y": 1668,
+        "camera_x": 36,
+        "hp": 3,
+        "frame": 174,
+        "weapon": 1,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 125,
+        "invuln": 34
+      },
+      "sprite_usage": {
+        "active_oam": 6,
+        "peak_per_scanline": 4,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 12,
+        "per_scanline": 10,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 91,
+      "audio": {
+        "samples": 105722,
+        "min": 0,
+        "max": 42,
+        "nonzero": 120602,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "weapons": {
+      "input_only": false,
+      "screenshots": {},
+      "checks": [
+        "three-digit ammunition HUD above 255",
+        "SELECT cycles available weapons",
+        "machinegun faster fire/ammunition",
+        "rocket projectile damage six",
+        "empty weapon falls back to pistol"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 236,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 0
+      },
+      "sprite_usage": {
+        "active_oam": 6,
+        "peak_per_scanline": 4,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 9,
+        "per_scanline": 7,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 6,
+      "audio": {
+        "samples": 131037,
+        "min": 0,
+        "max": 45,
+        "nonzero": 155950,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "death_retry": {
+      "input_only": false,
+      "screenshots": {
+        "death": "docs/verification/campaign/death.png",
+        "gameover": "docs/verification/campaign/gameover.png"
+      },
+      "checks": [
+        "hostile projectile damage",
+        "death during attack",
+        "HP reaches zero without wrapping",
+        "death animation to GAME OVER",
+        "A retry resets current mission",
+        "retry retains mission index"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 192,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 96
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 7,
+        "per_scanline": 5,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 11,
+      "audio": {
+        "samples": 120047,
+        "min": 0,
+        "max": 42,
+        "nonzero": 94724,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "pit_checkpoint": {
+      "input_only": false,
+      "screenshots": {
+        "pit_recovery": "docs/verification/campaign/mission0-pit-recovery.png"
+      },
+      "checks": [
+        "pit fall damages and recovers without softlock",
+        "checkpoint restores HP and ammunition"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 3202,
+        "player_y": 1664,
+        "camera_x": 3138,
+        "hp": 3,
+        "frame": 133,
+        "weapon": 0,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 89
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 4,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 44,
+      "audio": {
+        "samples": 94396,
+        "min": 0,
+        "max": 40,
+        "nonzero": 98336,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "boss": {
+      "input_only": false,
+      "screenshots": {
+        "arena": "docs/verification/campaign/mission0-boss-arena.png",
+        "phase2": "docs/verification/campaign/mission0-boss-phase2.png",
+        "boss_result": "docs/verification/campaign/mission0-boss-result.png"
+      },
+      "boss_patterns": {
+        "mission_index": 0,
+        "phase1": [
+          {
+            "x": 3381,
+            "y": 110,
+            "dx": -2,
+            "dy": 0
+          }
+        ],
+        "phase2": [
+          {
+            "x": 3381,
+            "y": 110,
+            "dx": -2,
+            "dy": 0
+          },
+          {
+            "x": 3381,
+            "y": 89,
+            "dx": -2,
+            "dy": 1
+          },
+          {
+            "x": 3381,
+            "y": 67,
+            "dx": -2,
+            "dy": 1
+          }
+        ]
+      },
+      "checks": [
+        "arena entry",
+        "closed core rejects hits",
+        "armor rejects hits",
+        "open core accepts rocket damage",
+        "phase one pattern",
+        "phase two pattern",
+        "boss defeat during attack clears hostile shots",
+        "explosion sequence to result screen",
+        "result hides sprites and clears projectiles",
+        "A advances stage with score and resupply"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 1,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 254,
+        "weapon": 1,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 1010,
+        "invuln": 95
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 10,
+        "per_scanline": 6,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 148,
+      "audio": {
+        "samples": 151803,
+        "min": 0,
+        "max": 43,
+        "nonzero": 209796,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "checkpoint_retry": {
+      "input_only": false,
+      "screenshots": {},
+      "checks": [
+        "boss death retains checkpoint",
+        "retry starts arena with health/boss/ammo reset"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 3312,
+        "player_y": 1668,
+        "camera_x": 3296,
+        "hp": 3,
+        "frame": 178,
+        "weapon": 1,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 1,
+        "boss_timer": 85,
+        "score": 0,
+        "invuln": 94
+      },
+      "sprite_usage": {
+        "active_oam": 0,
+        "peak_per_scanline": 0,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 4,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 14,
+      "audio": {
+        "samples": 121221,
+        "min": 0,
+        "max": 27,
+        "nonzero": 100362,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission1_death_retry": {
+      "input_only": false,
+      "screenshots": {
+        "death": "docs/verification/campaign/mission1-death.png",
+        "gameover": "docs/verification/campaign/mission1-gameover.png"
+      },
+      "checks": [
+        "hostile projectile damage",
+        "death during attack",
+        "HP reaches zero without wrapping",
+        "death animation to GAME OVER",
+        "A retry resets current mission",
+        "retry retains mission index"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 1,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 201,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 96
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 7,
+        "per_scanline": 5,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 15,
+      "audio": {
+        "samples": 131419,
+        "min": 0,
+        "max": 41,
+        "nonzero": 112956,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission1_pit_checkpoint": {
+      "input_only": false,
+      "screenshots": {
+        "pit_recovery": "docs/verification/campaign/mission1-pit-recovery.png"
+      },
+      "checks": [
+        "pit fall damages and recovers without softlock",
+        "checkpoint restores HP and ammunition"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 1,
+        "player_x": 2561,
+        "player_y": 1664,
+        "camera_x": 2497,
+        "hp": 3,
+        "frame": 142,
+        "weapon": 0,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 89
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 4,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 48,
+      "audio": {
+        "samples": 105672,
+        "min": 0,
+        "max": 35,
+        "nonzero": 117934,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission1_boss": {
+      "input_only": false,
+      "screenshots": {
+        "arena": "docs/verification/campaign/mission1-boss-arena.png",
+        "phase2": "docs/verification/campaign/mission1-boss-phase2.png",
+        "boss_result": "docs/verification/campaign/mission1-boss-result.png"
+      },
+      "boss_patterns": {
+        "mission_index": 1,
+        "phase1": [
+          {
+            "x": 2741,
+            "y": 110,
+            "dx": -2,
+            "dy": 0
+          }
+        ],
+        "phase2": [
+          {
+            "x": 2741,
+            "y": 110,
+            "dx": -2,
+            "dy": 0
+          },
+          {
+            "x": 2741,
+            "y": 85,
+            "dx": -2,
+            "dy": 1
+          },
+          {
+            "x": 2680,
+            "y": 22,
+            "dx": 0,
+            "dy": 2
+          }
+        ]
+      },
+      "checks": [
+        "arena entry",
+        "closed core rejects hits",
+        "armor rejects hits",
+        "open core accepts rocket damage",
+        "phase one pattern",
+        "phase two pattern",
+        "boss defeat during attack clears hostile shots",
+        "explosion sequence to result screen",
+        "result hides sprites and clears projectiles",
+        "A advances stage with score and resupply"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 2,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 263,
+        "weapon": 1,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 1010,
+        "invuln": 95
+      },
+      "sprite_usage": {
+        "active_oam": 5,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 10,
+        "per_scanline": 6,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 152,
+      "audio": {
+        "samples": 163440,
+        "min": 0,
+        "max": 44,
+        "nonzero": 227762,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission1_checkpoint_retry": {
+      "input_only": false,
+      "screenshots": {},
+      "checks": [
+        "boss death retains checkpoint",
+        "retry starts arena with health/boss/ammo reset"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 1,
+        "player_x": 2672,
+        "player_y": 1668,
+        "camera_x": 2656,
+        "hp": 3,
+        "frame": 187,
+        "weapon": 1,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 1,
+        "boss_timer": 85,
+        "score": 0,
+        "invuln": 94
+      },
+      "sprite_usage": {
+        "active_oam": 0,
+        "peak_per_scanline": 0,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 4,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 18,
+      "audio": {
+        "samples": 133072,
+        "min": 0,
+        "max": 27,
+        "nonzero": 118782,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission2_death_retry": {
+      "input_only": false,
+      "screenshots": {
+        "death": "docs/verification/campaign/mission2-death.png",
+        "gameover": "docs/verification/campaign/mission2-gameover.png"
+      },
+      "checks": [
+        "hostile projectile damage",
+        "death during attack",
+        "HP reaches zero without wrapping",
+        "death animation to GAME OVER",
+        "A retry resets current mission",
+        "retry retains mission index"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 2,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 201,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 96
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 8,
+        "per_scanline": 5,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 15,
+      "audio": {
+        "samples": 133049,
+        "min": 0,
+        "max": 47,
+        "nonzero": 112380,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission2_pit_checkpoint": {
+      "input_only": false,
+      "screenshots": {
+        "pit_recovery": "docs/verification/campaign/mission2-pit-recovery.png"
+      },
+      "checks": [
+        "pit fall damages and recovers without softlock",
+        "checkpoint restores HP and ammunition"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 2,
+        "player_x": 2945,
+        "player_y": 1664,
+        "camera_x": 2881,
+        "hp": 3,
+        "frame": 142,
+        "weapon": 0,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 89
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 5,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 48,
+      "audio": {
+        "samples": 106366,
+        "min": 0,
+        "max": 43,
+        "nonzero": 104304,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission2_boss": {
+      "input_only": false,
+      "screenshots": {
+        "arena": "docs/verification/campaign/mission2-boss-arena.png",
+        "phase2": "docs/verification/campaign/mission2-boss-phase2.png",
+        "boss_result": "docs/verification/campaign/mission2-boss-result.png"
+      },
+      "boss_patterns": {
+        "mission_index": 2,
+        "phase1": [
+          {
+            "x": 3122,
+            "y": 110,
+            "dx": -3,
+            "dy": 0
+          }
+        ],
+        "phase2": [
+          {
+            "x": 3122,
+            "y": 110,
+            "dx": -3,
+            "dy": 0
+          },
+          {
+            "x": 3125,
+            "y": 110,
+            "dx": -2,
+            "dy": 0
+          },
+          {
+            "x": 3125,
+            "y": 67,
+            "dx": -2,
+            "dy": 1
+          }
+        ]
+      },
+      "checks": [
+        "arena entry",
+        "closed core rejects hits",
+        "armor rejects hits",
+        "open core accepts rocket damage",
+        "phase one pattern",
+        "phase two pattern",
+        "boss defeat during attack clears hostile shots",
+        "explosion sequence to result screen",
+        "result hides sprites and clears projectiles",
+        "final replay returns to mission zero"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 0,
+        "player_x": 24,
+        "player_y": 1668,
+        "camera_x": 0,
+        "hp": 3,
+        "frame": 263,
+        "weapon": 0,
+        "checkpoint": 0,
+        "boss_hp": 48,
+        "boss_active": 0,
+        "boss_timer": 90,
+        "score": 0,
+        "invuln": 95
+      },
+      "sprite_usage": {
+        "active_oam": 4,
+        "peak_per_scanline": 2,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 10,
+        "per_scanline": 6,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 152,
+      "audio": {
+        "samples": 163216,
+        "min": 0,
+        "max": 44,
+        "nonzero": 218994,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "mission2_checkpoint_retry": {
+      "input_only": false,
+      "screenshots": {},
+      "checks": [
+        "boss death retains checkpoint",
+        "retry starts arena with health/boss/ammo reset"
+      ],
+      "passed": true,
+      "snapshot": {
+        "game_state": 1,
+        "mission_index": 2,
+        "player_x": 3056,
+        "player_y": 1668,
+        "camera_x": 3040,
+        "hp": 3,
+        "frame": 187,
+        "weapon": 1,
+        "checkpoint": 1,
+        "boss_hp": 48,
+        "boss_active": 1,
+        "boss_timer": 85,
+        "score": 0,
+        "invuln": 94
+      },
+      "sprite_usage": {
+        "active_oam": 0,
+        "peak_per_scanline": 0,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 5,
+        "per_scanline": 2,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 18,
+      "audio": {
+        "samples": 134229,
+        "min": 0,
+        "max": 27,
+        "nonzero": 111244,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    },
+    "complete_campaign": {
+      "input_only": true,
+      "screenshots": {
+        "stage0_opening": "docs/verification/campaign/stage0-opening.png",
+        "campaign_0": "docs/verification/campaign/campaign-0.png",
+        "stage0_midpoint": "docs/verification/campaign/stage0-midpoint.png",
+        "campaign_1200": "docs/verification/campaign/campaign-1200.png",
+        "stage0_boss": "docs/verification/campaign/stage0-boss.png",
+        "stage0_phase2": "docs/verification/campaign/stage0-phase2.png",
+        "campaign_2400": "docs/verification/campaign/campaign-2400.png",
+        "stage0_clear": "docs/verification/campaign/stage0-clear.png",
+        "stage1_opening": "docs/verification/campaign/stage1-opening.png",
+        "stage1_midpoint": "docs/verification/campaign/stage1-midpoint.png",
+        "campaign_3600": "docs/verification/campaign/campaign-3600.png",
+        "stage1_boss": "docs/verification/campaign/stage1-boss.png",
+        "stage1_phase2": "docs/verification/campaign/stage1-phase2.png",
+        "stage1_clear": "docs/verification/campaign/stage1-clear.png",
+        "stage2_opening": "docs/verification/campaign/stage2-opening.png",
+        "campaign_4800": "docs/verification/campaign/campaign-4800.png",
+        "stage2_midpoint": "docs/verification/campaign/stage2-midpoint.png",
+        "stage2_boss": "docs/verification/campaign/stage2-boss.png",
+        "campaign_6000": "docs/verification/campaign/campaign-6000.png",
+        "stage2_phase2": "docs/verification/campaign/stage2-phase2.png",
+        "victory": "docs/verification/campaign/input-only-campaign-victory.png"
+      },
+      "campaign_progress": {
+        "0": {
+          "name": "CINDER",
+          "start_frame": 202,
+          "seen_enemy_types": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak_x": 3318,
+          "retries": 0,
+          "boss_patterns": {
+            "1": [
+              [
+                -2,
+                0,
+                1
+              ]
+            ],
+            "2": [
+              [
+                -2,
+                0,
+                1
+              ],
+              [
+                -2,
+                1,
+                1
+              ]
+            ]
+          },
+          "boss_phase2_seen": true,
+          "elevated_platform_seen": true,
+          "display_frames": 4875,
+          "seconds": 81.62
+        },
+        "1": {
+          "name": "TIDEBREAK",
+          "start_frame": 5107,
+          "seen_enemy_types": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak_x": 2713,
+          "retries": 0,
+          "boss_patterns": {
+            "1": [
+              [
+                -2,
+                0,
+                1
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ],
+            "2": [
+              [
+                -2,
+                0,
+                1
+              ],
+              [
+                -2,
+                1,
+                1
+              ],
+              [
+                0,
+                2,
+                2
+              ]
+            ]
+          },
+          "boss_phase2_seen": true,
+          "elevated_platform_seen": true,
+          "display_frames": 4027,
+          "seconds": 67.42
+        },
+        "2": {
+          "name": "BLACKOUT",
+          "start_frame": 9165,
+          "seen_enemy_types": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "peak_x": 3062,
+          "retries": 0,
+          "boss_patterns": {
+            "1": [
+              [
+                -3,
+                0,
+                3
+              ]
+            ],
+            "2": [
+              [
+                -3,
+                0,
+                3
+              ],
+              [
+                -2,
+                0,
+                3
+              ],
+              [
+                -2,
+                1,
+                3
+              ]
+            ]
+          },
+          "boss_phase2_seen": true,
+          "elevated_platform_seen": true,
+          "display_frames": 4327,
+          "seconds": 72.45
+        }
+      },
+      "checks": [
+        "all three missions traversed with ordinary inputs",
+        "distinct level routes and enemy encounters",
+        "weapon pickups",
+        "pits crossed",
+        "boss checkpoint in every stage",
+        "all three bosses reached phase two",
+        "all bosses defeated by ordinary firing",
+        "stage-clear transitions",
+        "stage carryover score and resupply",
+        "final campaign victory"
+      ],
+      "campaign": {
+        "emulated_frames": 13492,
+        "approximate_seconds": 225.89,
+        "retries": 0,
+        "completed_mission_indices": [
+          0,
+          1,
+          2
+        ],
+        "retry_snapshots": [],
+        "stages": {
+          "0": {
+            "name": "CINDER",
+            "start_frame": 202,
+            "seen_enemy_types": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "peak_x": 3318,
+            "retries": 0,
+            "boss_patterns": {
+              "1": [
+                [
+                  -2,
+                  0,
+                  1
+                ]
+              ],
+              "2": [
+                [
+                  -2,
+                  0,
+                  1
+                ],
+                [
+                  -2,
+                  1,
+                  1
+                ]
+              ]
+            },
+            "boss_phase2_seen": true,
+            "elevated_platform_seen": true,
+            "display_frames": 4875,
+            "seconds": 81.62
+          },
+          "1": {
+            "name": "TIDEBREAK",
+            "start_frame": 5107,
+            "seen_enemy_types": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "peak_x": 2713,
+            "retries": 0,
+            "boss_patterns": {
+              "1": [
+                [
+                  -2,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2,
+                  2
+                ]
+              ],
+              "2": [
+                [
+                  -2,
+                  0,
+                  1
+                ],
+                [
+                  -2,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "boss_phase2_seen": true,
+            "elevated_platform_seen": true,
+            "display_frames": 4027,
+            "seconds": 67.42
+          },
+          "2": {
+            "name": "BLACKOUT",
+            "start_frame": 9165,
+            "seen_enemy_types": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "peak_x": 3062,
+            "retries": 0,
+            "boss_patterns": {
+              "1": [
+                [
+                  -3,
+                  0,
+                  3
+                ]
+              ],
+              "2": [
+                [
+                  -3,
+                  0,
+                  3
+                ],
+                [
+                  -2,
+                  0,
+                  3
+                ],
+                [
+                  -2,
+                  1,
+                  3
+                ]
+              ]
+            },
+            "boss_phase2_seen": true,
+            "elevated_platform_seen": true,
+            "display_frames": 4327,
+            "seconds": 72.45
+          }
+        },
+        "peak_oam": 15,
+        "peak_sprites_per_scanline": 10,
+        "sprite_overflow_frames": 0
+      },
+      "passed": true,
+      "snapshot": {
+        "game_state": 5,
+        "mission_index": 2,
+        "player_x": 3062,
+        "player_y": 1064,
+        "camera_x": 3040,
+        "hp": 3,
+        "frame": 11389,
+        "weapon": 1,
+        "checkpoint": 1,
+        "boss_hp": 0,
+        "boss_active": 1,
+        "boss_timer": 15,
+        "score": 9110,
+        "invuln": 0
+      },
+      "sprite_usage": {
+        "active_oam": 8,
+        "peak_per_scanline": 4,
+        "sprite_height": 16,
+        "overloaded_scanlines": []
+      },
+      "sprite_peaks_all_frames": {
+        "oam": 15,
+        "per_scanline": 10,
+        "overflow_frames": 0
+      },
+      "fixture_write_count": 0,
+      "audio": {
+        "samples": 5417889,
+        "min": 0,
+        "max": 47,
+        "nonzero": 8445198,
+        "sample_rate": 24000,
+        "recording_in_repository": false
+      }
+    }
+  },
+  "passed": true
+}

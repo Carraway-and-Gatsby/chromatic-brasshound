@@ -1,0 +1,43 @@
+{
+  "rom_validation": {
+    "rom": "build/BRASSHOUND.gbc",
+    "title": "BRASSHOUND",
+    "bytes": 32768,
+    "cgb_flag": "0xc0",
+    "cartridge_type": "0x0",
+    "rom_size_code": "0x0",
+    "ram_size_code": "0x0",
+    "sha256": "940e6b886e5576c5aaa2910192939e9b471b5705ba6a71cd3978657540265d63",
+    "checks": {
+      "nintendo_logo": true,
+      "cgb_enabled": true,
+      "size_matches_header": true,
+      "header_checksum": true,
+      "global_checksum": true
+    },
+    "passed": true
+  },
+  "mode": "memory-assisted UI fixtures",
+  "checks": [
+    "title art preserves OBJ patterns and 128px action area",
+    "hardware health 0..3, three weapon silhouettes, infinity, score, ammo 008..999",
+    "mission 0: 96px boss bar at full, 47, 32 and one HP",
+    "mission 0: pause/resume restores HUD positions and attributes",
+    "mission 0: title return, A start, world/boss/HUD/OBJ atlas integrity",
+    "mission 1: 96px boss bar at full, 47, 32 and one HP",
+    "mission 1: pause/resume restores HUD positions and attributes",
+    "mission 1: title return, A start, world/boss/HUD/OBJ atlas integrity",
+    "mission 2: 96px boss bar at full, 47, 32 and one HP",
+    "mission 2: pause/resume restores HUD positions and attributes",
+    "mission 2: title return, A start, world/boss/HUD/OBJ atlas integrity"
+  ],
+  "screenshots": {
+    "title": "docs/verification/ui/title.png",
+    "entry": "docs/verification/ui/entry.png",
+    "boss0": "docs/verification/ui/boss0.png",
+    "boss1": "docs/verification/ui/boss1.png",
+    "boss2": "docs/verification/ui/boss2.png"
+  },
+  "fixture_write_count": 95,
+  "passed": true
+}

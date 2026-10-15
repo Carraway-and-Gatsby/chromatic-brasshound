@@ -1,0 +1,13 @@
+{
+  "emulator": "PyBoy 2.8.1",
+  "rom": "build/BRASSHOUND.gbc",
+  "sha256": "940e6b886e5576c5aaa2910192939e9b471b5705ba6a71cd3978657540265d63",
+  "bytes": 32768,
+  "checks": {
+    "back_to_back_start_enters_game": true,
+    "back_to_back_start_pauses": true,
+    "back_to_back_start_resumes": true,
+    "back_to_back_right_moves_player": true
+  },
+  "passed": true
+}

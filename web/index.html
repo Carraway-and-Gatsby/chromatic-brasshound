@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRASSHOUND — Three-Mission Campaign</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#10181e;color:#e4ddc6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at top,#243541,#0b1217 75%)}
+main{width:min(760px,95vw);padding:26px 0}header{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px}h1{font-size:26px;letter-spacing:3px;margin:0;color:#ffcc67}p{line-height:1.55;margin:0}header p{font-size:11px;letter-spacing:2px;color:#c89a57;margin-top:6px}.badge{color:#83be9b;border:1px solid #3f5b4b;border-radius:4px;padding:7px;font-size:10px}
+.machine{padding:20px;background:#28323a;border:1px solid #52616b;border-radius:13px;box-shadow:0 20px 70px #0009,inset 0 2px #ffffff08}.screen{padding:12px;background:#080c0f;border-radius:5px;position:relative}canvas{display:block;width:100%;aspect-ratio:160/144;image-rendering:pixelated;background:#0b1825;outline:none;max-height:65vh;object-fit:contain}canvas:focus-visible{outline:2px solid #ffcc67}.bar{margin-top:13px;display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:11px;color:#9facb5}.bar div{display:flex;gap:8px}button{font:inherit;color:#eee4cf;background:#394752;border:1px solid #60717e;border-radius:5px;padding:8px 12px;cursor:pointer}button:hover,button:active{background:#526472}.controls{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:17px 0 12px;color:#b8c3ca;font-size:11px}kbd{color:#ffcc67;font:inherit;border-bottom:1px solid #84714d;padding:1px 3px}.hint{text-align:center;font-size:11px;color:#81929d}.touch{display:flex;justify-content:space-between;margin-top:18px;gap:10px}.dpad{display:grid;grid-template-columns:repeat(3,40px);grid-template-rows:repeat(2,35px);gap:4px}.dpad button{padding:0;font-size:17px}.up{grid-column:2}.left{grid-column:1}.down{grid-column:2}.right{grid-column:3}.actions{display:flex;align-items:center;gap:8px}.actions button{touch-action:none}.fire{color:#ffcc67}#error{color:#ff8f75;text-align:center;margin-top:12px;font-size:12px}footer{margin-top:20px;font-size:10px;line-height:1.7;color:#667c89;text-align:center}@media(min-width:700px){main{width:650px}.screen{padding:16px}canvas{max-height:576px}}
+@media(max-width:620px){.touch{flex-direction:column;align-items:center}.actions{flex-wrap:wrap;justify-content:center}header p{font-size:9px;letter-spacing:1px}h1{font-size:22px}}
+</style>
+</head>
+<body>
+<main>
+  <header><div><h1>BRASSHOUND</h1><p>3 MISSION CAMPAIGN<br>CINDER / TIDEBREAK / BLACKOUT</p></div><span class="badge">CGB / 160 × 144</span></header>
+  <section class="machine" aria-label="BRASSHOUND emulator">
+    <div class="screen"><canvas id="screen" width="160" height="144" tabindex="0" aria-label="Game Boy Color game screen. Press Enter to start."></canvas></div>
+    <div class="bar"><span id="status">BOOTING CARTRIDGE…</span><div><button id="sound">Enable sound</button><button id="reset">Reset ROM</button></div></div>
+    <div class="touch" aria-label="Touch controls">
+      <div class="dpad"><button class="up" data-key="up" aria-label="Aim upward">↑</button><button class="left" data-key="left" aria-label="Move left">←</button><button class="down" data-key="down" aria-label="Crouch">↓</button><button class="right" data-key="right" aria-label="Move right">→</button></div>
+      <div class="actions"><button data-key="select">Weapon</button><button data-key="start">Start / Pause</button><button data-key="a">A / Jump / Next</button><button class="fire" data-key="b">B / Fire</button></div>
+    </div>
+  </section>
+  <div class="controls"><span><kbd>← →</kbd> Move</span><span><kbd>↑</kbd> Aim</span><span><kbd>↓</kbd> Crouch</span><span><kbd>Z</kbd> Jump</span><span><kbd>X</kbd> Fire</span><span><kbd>Enter</kbd> Pause</span><span><kbd>Shift</kbd> Weapon</span></div>
+  <p class="hint">Press Enter to deploy. Hold X to fire. Press Z at STAGE CLEAR to continue.</p>
+  <p id="error" role="alert"></p>
+  <footer>Original game cartridge running in PyBoy CGB emulation.<br>Local framebuffer + hardware audio. Works offline. No browser game recreation.</footer>
+</main>
+<script>
+const canvas=document.getElementById('screen'),ctx=canvas.getContext('2d');
+ctx.imageSmoothingEnabled=false;
+const status=document.getElementById('status'),error=document.getElementById('error'),soundButton=document.getElementById('sound');
+const held=new Set(),keymap={ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down',KeyZ:'a',KeyX:'b',Enter:'start',ShiftLeft:'select',ShiftRight:'select'};
+let audioContext=null,audioOn=false,audioTime=0,inputSequence=Promise.resolve();
+function sendInput(){const keys=[...held];inputSequence=inputSequence.catch(()=>{}).then(()=>fetch('/input',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(keys)}));}
+async function enableAudio(){if(!audioContext)audioContext=new AudioContext({sampleRate:24000});await audioContext.resume();audioOn=true;audioTime=audioContext.currentTime;soundButton.textContent='Sound on';}
+function playAudio(encoded,rate){if(!audioOn||!audioContext||!encoded)return;const decoded=atob(encoded),length=decoded.length/2;if(!length)return;const samples=audioContext.createBuffer(2,length,rate);for(let c=0;c<2;c++){const channel=samples.getChannelData(c);for(let i=0;i<length;i++){const v=decoded.charCodeAt(i*2+c);channel[i]=(v>127?v-256:v)/128;}}const source=audioContext.createBufferSource();source.buffer=samples;source.connect(audioContext.destination);audioTime=Math.max(audioTime,audioContext.currentTime+.025);if(audioTime>audioContext.currentTime+.25)audioTime=audioContext.currentTime+.025;source.start(audioTime);audioTime+=length/rate;}
+soundButton.addEventListener('click',async()=>{if(audioOn){audioOn=false;soundButton.textContent='Enable sound';}else await enableAudio();});
+document.addEventListener('keydown',event=>{const key=keymap[event.code];if(!key)return;event.preventDefault();if(!audioContext)enableAudio();if(!held.has(key)){held.add(key);sendInput();}});
+document.addEventListener('keyup',event=>{const key=keymap[event.code];if(!key)return;event.preventDefault();held.delete(key);sendInput();});
+function clearInput(){held.clear();sendInput();}window.addEventListener('blur',clearInput);document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInput();});
+for(const button of document.querySelectorAll('[data-key]')){button.addEventListener('pointerdown',event=>{event.preventDefault();button.setPointerCapture(event.pointerId);if(!audioContext)enableAudio();held.add(button.dataset.key);sendInput();});for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,()=>{held.delete(button.dataset.key);sendInput();});}
+document.getElementById('reset').addEventListener('click',async()=>{clearInput();await fetch('/reset',{method:'POST'});canvas.focus();});
+canvas.addEventListener('pointerdown',()=>canvas.focus());
+async function poll(){try{const response=await fetch('/frame');if(!response.ok)throw Error('Emulator server unavailable');const frame=await response.json();if(frame.error)throw Error(frame.error);if(frame.png){const image=new Image();image.src='data:image/png;base64,'+frame.png;await image.decode();ctx.drawImage(image,0,0);}playAudio(frame.pcm,frame.sample_rate);status.textContent='CARTRIDGE RUNNING · FRAME '+frame.frame;error.textContent='';}catch(e){error.textContent=e.message+' — run make play to start the local emulator.';}setTimeout(poll,16);}
+poll();canvas.focus();
+</script>
+</body>
+</html>

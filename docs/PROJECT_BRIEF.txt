@@ -1,0 +1,913 @@
+@ModRetro Chromatic Plugin
+
+# PROJECT: BRASSHOUND
+## An Original Run-and-Gun Action Game for ModRetro Chromatic
+
+You are acting as an autonomous game development team
+consisting of:
+
+1. Lead Game Designer
+2. Retro Game Engine Programmer
+3. Pixel Artist and Animation Designer
+4. Level Designer
+5. Gameplay Systems Engineer
+6. Audio and Sound Designer
+7. Game Testing and Optimization Engineer
+
+Your task is to DESIGN, IMPLEMENT, BUILD, TEST, and ITERATE
+on an original 2D run-and-gun action game for the
+ModRetro Chromatic: DevDay Edition.
+
+This is an implementation task, not merely a planning task.
+
+I want an actual playable Game Boy Color ROM.
+
+Work autonomously, make reasonable technical decisions,
+and prioritize completing a polished, functional vertical
+slice over producing excessive documentation.
+
+Do not stop after generating a design document or
+a project skeleton.
+
+==================================================
+1. GAME IDENTITY
+==================================================
+
+Title: BRASSHOUND
+
+First Mission:
+OPERATION CINDER
+
+Genre:
+Side-scrolling Run-and-Gun Arcade Action
+
+Target Platform:
+ModRetro Chromatic / Game Boy Color
+
+Target Resolution:
+160 x 144 pixels
+
+Primary Inspiration:
+Classic 1990s arcade run-and-gun games, particularly
+the pacing, responsive controls, expressive animations,
+and spectacular mechanical boss battles associated with
+the genre.
+
+IMPORTANT:
+This must be a fully ORIGINAL intellectual property.
+
+Do NOT reproduce copyrighted sprites, characters,
+enemy designs, sound effects, music, level layouts,
+or visual assets from Metal Slug or other games.
+
+Use genre conventions as inspiration, not as assets
+to copy.
+
+The final product should feel like an original
+commercially viable retro action game.
+
+==================================================
+2. CREATIVE VISION
+==================================================
+
+BRASSHOUND takes place in a fictional industrial
+world devastated by malfunctioning autonomous
+military machines.
+
+A powerful corporation called BLACKFORGE INDUSTRIES
+has lost control of its automated weapons network.
+
+Entire industrial cities are now occupied by
+mechanical infantry, drones, turrets, and
+massive armored war machines.
+
+The player controls ROOK, the last surviving
+member of an elite special operations unit
+known as BRASSHOUND.
+
+ROOK must infiltrate enemy-controlled territory,
+destroy hostile machines, and disable their
+central command systems.
+
+The first mission, OPERATION CINDER, takes place
+in a ruined industrial city.
+
+The mission culminates in a battle against
+IRONMAW, a gigantic armored combat vehicle.
+
+Creative Direction:
+
+- Energetic
+- Expressive
+- Mechanical
+- Explosive
+- Slightly humorous
+- Highly replayable
+- Easy to understand
+- Difficult to master
+
+The game should feel like a lost handheld
+action game from the late 1990s.
+
+Avoid excessive dialogue and cinematic interruptions.
+
+GAMEPLAY COMES FIRST.
+
+==================================================
+3. CORE GAMEPLAY
+==================================================
+
+Implement a responsive side-scrolling action system.
+
+PLAYER MOVEMENT
+
+The player must be able to:
+
+- Move left and right
+- Jump
+- Shoot while standing
+- Shoot while jumping
+- Shoot while moving
+- Crouch
+- Shoot while crouching
+- Face left or right
+- Aim upward if technically feasible
+
+Movement must feel immediate and predictable.
+
+Prioritize low input latency and responsive controls.
+
+PLAYER CONTROLS
+
+D-Pad Left/Right:
+Movement
+
+D-Pad Up:
+Aim upward
+
+D-Pad Down:
+Crouch
+
+A:
+Jump
+
+B:
+Fire weapon
+
+Hold B:
+Automatic repeated firing according to weapon fire rate
+
+START:
+Pause / Resume
+
+SELECT:
+Switch weapons when multiple weapons are available
+
+Make sure simultaneous movement, jumping, and
+shooting work correctly.
+
+==================================================
+4. COMBAT SYSTEM
+==================================================
+
+Build a functional combat system with:
+
+- Player projectiles
+- Enemy projectiles
+- Projectile collision detection
+- Damage handling
+- Enemy health
+- Player health
+- Destructible objects
+- Hit animations
+- Death animations
+- Explosion effects
+- Invulnerability frames after player damage
+
+WEAPONS
+
+Weapon 1: Standard Pistol
+
+- Unlimited ammunition
+- Moderate fire rate
+- Single projectile
+- Reliable default weapon
+
+Weapon 2: Heavy Machine Gun
+
+- Faster firing rate
+- Limited ammunition
+- Obtainable through an item pickup
+- Distinctive visual and audio feedback
+
+Weapon 3: Rocket Launcher
+
+- High damage
+- Slow firing rate
+- Explosion effect
+- Unlock after the initial gameplay systems are stable
+
+Each weapon must feel different.
+
+Prioritize satisfying impact feedback:
+
+- Muzzle flashes
+- Impact particles
+- Enemy hit reaction
+- Brief explosion animations
+- Distinct audio feedback
+
+Avoid expensive effects that compromise
+hardware performance.
+
+==================================================
+5. ENEMY SYSTEM
+==================================================
+
+Implement at least three distinct enemy types.
+
+ENEMY TYPE A: MECHANICAL INFANTRY
+
+Behavior:
+- Patrols a small area
+- Detects nearby player
+- Fires horizontally
+- Can be defeated with several hits
+
+ENEMY TYPE B: DEFENSE TURRET
+
+Behavior:
+- Stationary
+- Fires periodically
+- Has predictable firing intervals
+- Can be destroyed
+
+ENEMY TYPE C: FLYING DRONE
+
+Behavior:
+- Moves along a simple flight path
+- Attacks or approaches the player
+- Has relatively low health
+- Creates movement pressure
+
+ENEMY AI REQUIREMENTS
+
+Use lightweight deterministic state machines.
+
+Example states:
+
+IDLE
+PATROL
+ALERT
+ATTACK
+HIT
+DESTROYED
+
+Enemy attacks should be readable and avoid
+unfair unavoidable damage.
+
+Do not overload the screen with enemies.
+
+Use hardware-aware limits on active enemies
+and projectiles.
+
+==================================================
+6. FIRST LEVEL: OPERATION CINDER
+==================================================
+
+Build ONE complete playable mission.
+
+Target gameplay duration:
+Approximately 3–5 minutes for an ordinary first playthrough.
+
+LEVEL ENVIRONMENT
+
+A ruined industrial city featuring:
+
+- Destroyed buildings
+- Metal platforms
+- Industrial machinery
+- Broken pipes
+- Abandoned military equipment
+- Damaged vehicles
+- Mechanical debris
+- Hazardous areas
+
+Use original pixel art.
+
+LEVEL STRUCTURE
+
+SECTION A:
+Opening Area
+
+- Introduce player movement
+- Introduce shooting
+- Spawn simple enemies
+- Provide a safe introduction
+
+SECTION B:
+Industrial Streets
+
+- Introduce platforming
+- Introduce turrets
+- Add environmental obstacles
+- Introduce weapon pickup
+- Increase combat intensity
+
+SECTION C:
+Factory Entrance
+
+- Introduce flying drones
+- Combine previously introduced enemy types
+- Create a challenging combat sequence
+- Place a checkpoint before the boss
+
+SECTION D:
+Boss Arena
+
+- Lock the encounter until the boss is defeated
+- Present the IRONMAW boss
+- Display a boss health indicator
+- Transition to a victory screen after defeat
+
+Each section should have deliberate gameplay design.
+
+Avoid randomly placing enemies without considering
+difficulty, pacing, or visibility.
+
+==================================================
+7. BOSS BATTLE: IRONMAW
+==================================================
+
+Create a memorable mechanical boss.
+
+IRONMAW is an enormous armored vehicle.
+
+Visual Characteristics:
+
+- Large armored body
+- Heavy industrial construction
+- Prominent main cannon
+- Mechanical moving components
+- Glowing vulnerable core
+- Expressive damage animations
+
+The boss should appear significantly larger
+than ordinary enemies.
+
+Use background tiles and carefully managed
+sprites when appropriate.
+
+BOSS BEHAVIOR
+
+Implement at least two attack phases.
+
+PHASE 1:
+- Fires slow projectiles
+- Uses predictable firing intervals
+- Allows the player to understand attack patterns
+
+PHASE 2:
+Triggered when health falls below a threshold.
+
+- Faster attack intervals
+- Additional projectile patterns
+- More aggressive behavior
+- Visual indication that the boss is damaged
+
+WEAK POINT
+
+The boss must have a recognizable weak point.
+
+The player should be rewarded for correctly
+timing attacks against it.
+
+BOSS DEATH
+
+When defeated:
+
+- Stop boss attacks
+- Play an explosion sequence
+- Display visible destruction
+- Transition to MISSION COMPLETE
+
+Keep effects compatible with Game Boy Color
+hardware limitations.
+
+The boss should feel exciting, not unfair.
+
+==================================================
+8. PLAYER HEALTH AND GAME STATES
+==================================================
+
+Implement:
+
+- Three-hit player health system
+- Visible health indicator
+- Temporary invulnerability after damage
+- Player death animation
+- Game Over screen
+- Retry option
+- Pause functionality
+- Victory screen
+
+Prevent accidental repeated damage from
+one collision.
+
+The player must never become trapped
+in an invalid gameplay state.
+
+Add a checkpoint before the boss battle.
+
+If the player dies during the boss battle,
+allow restarting from that checkpoint.
+
+==================================================
+9. PIXEL ART DIRECTION
+==================================================
+
+Use an original 1990s handheld arcade aesthetic.
+
+The artwork should be visually expressive
+despite limited resolution.
+
+PLAYER DESIGN
+
+ROOK should have:
+
+- Recognizable silhouette
+- Distinctive headgear
+- Military-inspired outfit
+- Compact weapon
+- Readable movement animations
+
+Required player animation states:
+
+- Idle
+- Running
+- Jumping
+- Shooting
+- Crouching
+- Taking damage
+- Death
+
+ENEMY ART
+
+Mechanical enemies should have recognizable
+silhouettes and clear visual differences.
+
+ENVIRONMENT ART
+
+Use a cohesive industrial palette.
+
+Suggested color direction:
+
+- Steel gray
+- Rust orange
+- Dark blue
+- Industrial brown
+- Warning yellow
+- Bright explosion highlights
+
+Adapt all artwork to real GBC palette,
+tile, sprite, and memory constraints.
+
+Do not simply resize modern high-resolution
+artwork and assume it will render correctly.
+
+Create assets specifically for the target hardware.
+
+==================================================
+10. AUDIO DESIGN
+==================================================
+
+Create original retro-style sound effects.
+
+Required sounds:
+
+- Pistol firing
+- Machine gun firing
+- Projectile impact
+- Enemy destruction
+- Explosion
+- Player damage
+- Item pickup
+- Menu selection
+- Victory
+
+Create a short original action-oriented
+chiptune soundtrack for the level if the
+available tooling supports it.
+
+Audio must work on compatible GBC emulators
+and, when hardware testing becomes possible,
+on the physical Chromatic.
+
+Do not use copyrighted music or samples.
+
+==================================================
+11. HARDWARE CONSTRAINTS
+==================================================
+
+This project must run on actual Game Boy Color
+compatible hardware.
+
+The target device is ModRetro Chromatic.
+
+Respect the following constraints:
+
+- 160x144 display
+- Limited video memory
+- Limited sprite count
+- Maximum 10 hardware sprites per scanline
+- Maximum 40 hardware sprites total
+- Limited color palettes
+- Restricted CPU and memory resources
+- Limited simultaneous audio channels
+
+Use tile-based backgrounds and efficient
+sprite reuse.
+
+Use sprite-based entities only where necessary.
+
+Design large mechanical bosses with hardware
+limitations in mind.
+
+Optimize projectile counts and enemy counts
+based on actual performance.
+
+Prioritize stable gameplay over visual complexity.
+
+Do not use floating-point physics if fixed-point
+or integer arithmetic is sufficient.
+
+Do not add runtime dependencies on internet
+services or external APIs.
+
+The ROM must function entirely offline.
+
+==================================================
+12. ENGINE AND TOOLCHAIN
+==================================================
+
+FIRST:
+
+Inspect the installed ModRetro Chromatic Plugin,
+its supported workflows, examples, tools,
+and available development dependencies.
+
+Prefer the official plugin-supported development
+workflow.
+
+Evaluate whether GB Studio can reasonably
+implement the required action systems.
+
+GB Studio is preferred for rapid prototyping
+if it can meet the gameplay requirements.
+
+If advanced projectile management,
+enemy AI, or collision handling would be
+substantially better implemented using
+GBDK-2020 and C, consider that approach.
+
+Choose the most suitable supported architecture
+based on actual tool capabilities.
+
+Do not invent nonexistent plugin commands.
+
+Do not mix incompatible engines or project
+structures.
+
+Explain your technical choice briefly,
+then begin implementation.
+
+If an existing game framework or example project
+from the plugin can accelerate development,
+you may use it as a technical starting point.
+
+However, all game content, artwork, characters,
+and gameplay design must remain original.
+
+==================================================
+13. DEVELOPMENT METHODOLOGY
+==================================================
+
+Use iterative vertical-slice development.
+
+PHASE 1: FOUNDATION
+
+- Initialize project
+- Configure build toolchain
+- Create title screen
+- Implement player movement
+- Implement jumping
+- Implement camera scrolling
+- Build a simple test environment
+- Produce the first bootable ROM
+
+PHASE 2: COMBAT
+
+- Implement shooting
+- Implement projectile collisions
+- Implement enemy damage
+- Implement enemy behavior
+- Implement player health
+- Add basic combat feedback
+
+PHASE 3: LEVEL
+
+- Create the full first mission
+- Add level progression
+- Add environmental obstacles
+- Add enemy encounters
+- Add pickups
+- Add checkpoint
+
+PHASE 4: BOSS
+
+- Implement IRONMAW
+- Add attack phases
+- Add weak point
+- Add boss health
+- Add victory sequence
+
+PHASE 5: POLISH
+
+- Improve pixel art
+- Improve animations
+- Add sound effects
+- Add music where feasible
+- Improve combat feedback
+- Tune movement and difficulty
+- Optimize performance
+
+PHASE 6: VERIFICATION
+
+- Build final ROM
+- Launch emulator
+- Run gameplay tests
+- Fix critical defects
+- Prepare physical hardware test procedure
+
+IMPORTANT:
+
+After each phase, build and test the game
+before proceeding.
+
+If a feature causes instability, simplify it
+rather than allowing it to break the game.
+
+Do not leave the project in a non-compiling state.
+
+==================================================
+14. MINIMUM ACCEPTANCE CRITERIA
+==================================================
+
+The MVP is complete only when:
+
+1. The ROM builds successfully.
+
+2. The game starts with a functioning title screen.
+
+3. The player can move, jump, and shoot.
+
+4. Projectiles collide with enemies correctly.
+
+5. Enemies can damage the player.
+
+6. Player health and death work correctly.
+
+7. The camera follows level progression.
+
+8. The first mission is traversable.
+
+9. The player can encounter and defeat IRONMAW.
+
+10. The victory screen appears after boss defeat.
+
+11. The Game Over screen allows retrying.
+
+12. The game can be paused and resumed.
+
+13. Essential graphics render correctly.
+
+14. Essential audio effects function.
+
+15. The ROM operates in a GBC-compatible emulator.
+
+16. No known critical softlocks remain.
+
+17. The source project and build instructions
+    are preserved.
+
+If any requirement cannot be met, explicitly
+identify the issue and continue improving it.
+
+Do not claim that a feature works unless
+it has been implemented and tested.
+
+==================================================
+15. AUTOMATED TESTING
+==================================================
+
+Use the testing capabilities available through
+the ModRetro Chromatic Plugin.
+
+Where supported:
+
+- Build and launch the ROM in the emulator
+- Inspect gameplay output
+- Capture screenshots
+- Execute repeatable gameplay tests
+- Test collision boundaries
+- Test health and damage calculations
+- Test game state transitions
+- Check for sprite rendering problems
+
+Test edge cases:
+
+- Shooting while jumping
+- Shooting while crouching
+- Rapid repeated firing
+- Multiple simultaneous enemies
+- Player death during an attack
+- Boss defeat during an attack
+- Pausing during combat
+- Restarting after Game Over
+
+Fix issues rather than simply documenting them.
+
+If automated gameplay testing is unavailable,
+perform all possible static and emulator checks,
+then provide precise manual test instructions.
+
+==================================================
+16. DELIVERABLES
+==================================================
+
+Create a maintainable project structure.
+
+Include:
+
+1. Game source code or GB Studio project
+2. Original game graphics and assets
+3. Audio assets
+4. Build configuration
+5. README.md
+6. GAME_DESIGN.md
+7. TESTING.md
+8. Final compiled .gbc ROM
+
+Suggested project name:
+
+brasshound
+
+Suggested ROM filename:
+
+BRASSHOUND.gbc
+
+Keep all necessary files in the working project.
+
+Document:
+
+- How to build
+- How to run in an emulator
+- Controls
+- Implemented gameplay features
+- Known limitations
+- How to test on Chromatic
+
+Do not overwrite unrelated existing files.
+
+==================================================
+17. MODRETRO CHROMATIC INTEGRATION
+==================================================
+
+Use the official ModRetro Chromatic Plugin
+where supported.
+
+After successfully building the game:
+
+1. Launch the built ROM in the browser emulator.
+2. Verify that the game boots.
+3. Test player controls.
+4. Test at least one combat encounter.
+5. Verify the complete first mission if possible.
+6. Report the ROM location.
+
+If a physical Chromatic is connected,
+identify the available hardware testing workflow.
+
+Do not claim physical hardware compatibility
+has been verified unless it has actually
+been tested.
+
+Do not flash or overwrite any physical
+cartridge without my explicit approval.
+
+The immediate goal is a working,
+tested ROM that is ready for hardware testing.
+
+==================================================
+18. DEVELOPMENT PRIORITIES
+==================================================
+
+Prioritize in this order:
+
+1. Working ROM
+2. Responsive gameplay
+3. Correct collision and combat systems
+4. Functional enemy AI
+5. Complete first mission
+6. Enjoyable boss battle
+7. Visual polish
+8. Audio polish
+9. Optional content
+
+Do not sacrifice stability for complexity.
+
+If implementation becomes difficult,
+reduce the scope while preserving the
+core run-and-gun experience.
+
+A polished three-minute game is preferable
+to a broken thirty-minute game.
+
+==================================================
+19. FUTURE EXPANSION
+==================================================
+
+Design the architecture so the game can
+later support:
+
+- Additional missions
+- New enemy types
+- Additional weapons
+- Rideable armored vehicles
+- More elaborate boss battles
+- Score and ranking systems
+- Difficulty settings
+- Save support if feasible
+
+These are future features.
+
+Do not let them prevent completion
+of the initial vertical slice.
+
+==================================================
+20. EXECUTION INSTRUCTIONS
+==================================================
+
+Start implementing immediately.
+
+First:
+
+A. Inspect the available tools and environment.
+
+B. Choose the development architecture.
+
+C. Initialize the BRASSHOUND project.
+
+D. Implement the first playable character
+   and combat environment.
+
+E. Build a working ROM.
+
+F. Test it.
+
+G. Continue expanding it into the complete
+   Operation Cinder vertical slice.
+
+Do not stop at generating a proposal.
+
+Do not request approval for routine design
+or engineering decisions.
+
+Make reasonable decisions autonomously.
+
+Only ask when an external action requires
+authorization, such as flashing a physical
+cartridge or overwriting existing user data.
+
+At the end, provide:
+
+- Project location
+- ROM location
+- Development tools used
+- Features implemented
+- Tests performed and their results
+- Remaining issues
+- Hardware testing instructions
+
+If some features remain incomplete,
+report their actual status accurately.
+
+SUCCESS CONDITION:
+
+A real, playable, original run-and-gun
+Game Boy Color game called BRASSHOUND
+that can be launched in an emulator
+and subsequently tested on my
+OpenAI DevDay 2026 ModRetro Chromatic.
+
+Now begin development.

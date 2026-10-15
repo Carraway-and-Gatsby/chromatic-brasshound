@@ -1,0 +1,20 @@
+tools/gbdk/
+tools/emulator-venv/
+__pycache__/
+*.pyc
+build/
+*.sav
+*.gbc.state
+.DS_Store
+
+# Local credentials, editor state and machine configuration
+.env
+.env.*
+!.env.example
+.agents/
+.codex/
+.aws/
+*.log
+
+# Local design-session history (public reviews are under docs/)
+/design-qa.md

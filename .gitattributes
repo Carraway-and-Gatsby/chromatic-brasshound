@@ -1,0 +1,6 @@
+* text=auto
+*.gbc binary
+*.png binary
+*.gif binary
+*.zip binary
+*.wav binary

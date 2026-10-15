@@ -1,0 +1,39 @@
+{
+  "sha256": "940e6b886e5576c5aaa2910192939e9b471b5705ba6a71cd3978657540265d63",
+  "ordinary": {
+    "fixture_writes": 0,
+    "screens": {
+      "idle": "docs/verification/rook/idle-live.png",
+      "run": "docs/verification/rook/run-live.png",
+      "fire": "docs/verification/rook/fire-live.png",
+      "aim": "docs/verification/rook/aim-live.png",
+      "left": "docs/verification/rook/left-live.png",
+      "aim-left": "docs/verification/rook/aim-left-live.png",
+      "crouch": "docs/verification/rook/crouch-live.png",
+      "jump": "docs/verification/rook/jump-live.png"
+    },
+    "checks": [
+      "16x24 standing ROOK; four hardware objects; original y120 foot anchor",
+      "four distinct running phases reach hardware OAM with ordinary right input",
+      "horizontal/recoil and vertical-shot glyphs originate at native rifle muzzles",
+      "left-facing upper/lower pairs swap and flip without moving the feet",
+      "compact crouch and tucked jump preserve original platform/ground physics"
+    ],
+    "sprite_peak": {
+      "oam": 9,
+      "scanline": 6,
+      "overflow": 0
+    }
+  },
+  "collision_fixtures": {
+    "fixture_writes": 131,
+    "screens": {
+      "hurt": "docs/verification/rook/hurt-fixture.png",
+      "down": "docs/verification/rook/down-fixture.png"
+    },
+    "checks": [
+      "original forgiving torso hurtbox, crouch avoidance, damage and death poses"
+    ]
+  },
+  "passed": true
+}
